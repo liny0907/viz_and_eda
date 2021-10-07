@@ -182,8 +182,23 @@ weather_df %>%
 
 
 
+```{r}
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax, color = name)) +
+  geom_point()
+```
 
+```{r}
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax)) +
+  geom_point(color = "blue")
+```
 
+```{r}
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax), color = name) +
+  geom_point()
+```
 
 
 
