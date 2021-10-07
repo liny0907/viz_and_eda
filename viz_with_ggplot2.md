@@ -124,7 +124,7 @@ weather_df %>%
   scale_color_hue(
     name = "Location",
     h = c(100, 300)) +
-  scale_color_viridis_d()
+  scale_color_viridis_d() ##d means discrete
 ```
 
     ## Scale for 'colour' is already present. Adding another scale for 'colour',
@@ -133,3 +133,80 @@ weather_df %>%
     ## Warning: Removed 15 rows containing missing values (geom_point).
 
 ![](viz_with_ggplot2_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+## Themes
+
+``` r
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax, color = name)) +
+  geom_point(alpha = 0.3) +
+  labs(
+    title = "Temperature at three stations",
+    x = "Minimum daily temp (C)",
+    y = "Maxiumum daily temp (C)",
+    caption = "Data from the rnoaa package with three stations"
+  ) +
+  scale_color_viridis_d() +
+  theme_bw() ##bw:black and white
+```
+
+    ## Warning: Removed 15 rows containing missing values (geom_point).
+
+![](viz_with_ggplot2_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+  theme(legend.position = "bottom") ## take care of the theme_bw order
+```
+
+    ## List of 1
+    ##  $ legend.position: chr "bottom"
+    ##  - attr(*, "class")= chr [1:2] "theme" "gg"
+    ##  - attr(*, "complete")= logi FALSE
+    ##  - attr(*, "validate")= logi TRUE
+
+``` r
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax, color = name)) +
+  geom_point(alpha = 0.3) +
+  labs(
+    title = "Temperature at three stations",
+    x = "Minimum daily temp (C)",
+    y = "Maxiumum daily temp (C)",
+    caption = "Data from the rnoaa package with three stations"
+  ) +
+  scale_color_viridis_d() +
+  ggthemes::theme_excel()
+```
+
+    ## Warning: Removed 15 rows containing missing values (geom_point).
+
+![](viz_with_ggplot2_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+  theme(legend.position = "bottom")
+```
+
+    ## List of 1
+    ##  $ legend.position: chr "bottom"
+    ##  - attr(*, "class")= chr [1:2] "theme" "gg"
+    ##  - attr(*, "complete")= logi FALSE
+    ##  - attr(*, "validate")= logi TRUE
+
+``` r
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax, color = name)) +
+  geom_point(alpha = 0.3) +
+  labs(
+    title = "Temperature at three stations",
+    x = "Minimum daily temp (C)",
+    y = "Maxiumum daily temp (C)",
+    caption = "Data from the rnoaa package with three stations"
+  ) +
+  scale_color_viridis_d() +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+    ## Warning: Removed 15 rows containing missing values (geom_point).
+
+![](viz_with_ggplot2_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
